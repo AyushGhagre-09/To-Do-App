@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import TaskForm from "../components/Taskform";
-import Taskitem from "../components/Taskitem";
+import TaskForm from "../components/TaskForm";
+import Taskitem from "../components/TaskItem";
 const Dashboard = () => {
   const [editTask, setEditTask] = useState(null);
   return (
