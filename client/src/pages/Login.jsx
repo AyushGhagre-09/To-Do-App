@@ -6,12 +6,14 @@ const Login = () => {
   const [state, setState] = useState("login");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = React.useState("");
+  const [password, setPassword] =useState("");
+  const [loading,setLoading]=useState(false);
   
   const {axios,setToken}=useAppContext();
 
   const handleSubmit=async(e)=>{
     e.preventDefault();
+    setLoading(true);
     const url=state==="login" ?"/api/user/login":"/api/user/register";
     try {
       console.log(name,email,password);
@@ -26,6 +28,8 @@ const Login = () => {
       }
     } catch (error) {
        toast.error(error.message);
+    }finally{
+      setLoading(false);
     }
   }
   return (
@@ -90,8 +94,8 @@ const Login = () => {
           </span>
         </p>
       )}
-      <button className="bg-indigo-500 hover:bg-indigo-600 transition-all text-white w-full py-2 rounded-md cursor-pointer">
-        {state === "register" ? "Create Account" : "Login"}
+      <button disabled={loading} className="bg-indigo-500 hover:bg-indigo-600 transition-all text-white w-full py-2 rounded-md cursor-pointer">
+         {loading ? "Loading..." : state === "register" ? "Create Account" : "Login"}
       </button>
     </form>
   );
