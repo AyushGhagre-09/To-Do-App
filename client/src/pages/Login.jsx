@@ -22,14 +22,13 @@ const Login = () => {
       if(data.success){
         setToken(data.token);
         localStorage.setItem("token",data.token);
+        setLoading(false);
         state==="login"?toast.success("Login successfully"):toast.success("Register successfully");
       }else{
         toast.error(data.message);
       }
     } catch (error) {
        toast.error(error.message);
-    }finally{
-      setLoading(false);
     }
   }
   return (
