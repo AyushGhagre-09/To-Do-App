@@ -26,6 +26,7 @@ const Login = () => {
         state==="login"?toast.success("Login successfully"):toast.success("Register successfully");
       }else{
         toast.error(data.message);
+        setLoading(false);
       }
     } catch (error) {
        toast.error(error.message);
