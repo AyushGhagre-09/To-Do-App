@@ -7,7 +7,6 @@ axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
 export const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(localStorage.getItem("token") || null);
 
   const fetchUser = async () => {
@@ -20,8 +19,6 @@ export const AppContextProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error.message);
-    } finally {
-      setLoading(false);
     }
   };
   const fetchUserTasks = async () => {
@@ -34,12 +31,8 @@ export const AppContextProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error.message);
-    } finally {
-      setLoading(false);
     }
   };
-
- 
 
   useEffect(() => {
     if (user) {
@@ -56,8 +49,17 @@ export const AppContextProvider = ({ children }) => {
       setUser(null);
     }
   }, [token]);
-  
-  const value = { axios,user, setUser, tasks, setTasks, token, setToken, loading,fetchUserTasks };
+
+  const value = {
+    axios,
+    user,
+    setUser,
+    tasks,
+    setTasks,
+    token,
+    setToken,
+    fetchUserTasks,
+  };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

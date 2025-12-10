@@ -6,10 +6,7 @@ import { Toaster } from "react-hot-toast";
 import Login from "./pages/Login";
 import { Route, Routes } from "react-router-dom";
 const App = () => {
-  const { user, loading } = useAppContext();
-  if (loading) {
-    return <Loading />;
-  }
+  const { user } = useAppContext();
   return (
     <>
       <Toaster />
