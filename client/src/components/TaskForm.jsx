@@ -76,7 +76,7 @@ const TaskForm = ({ editTask, setEditTask }) => {
   }, [editTask]);
 
   return (
-    <div className="max-h-80 mt-5 max-w-md mx-auto bg-white shadow-lg p-6 rounded-lg">
+    <div className="max-h-80 relative top-12 z-1 mt-5 max-w-md mx-auto bg-white shadow-lg p-6 rounded-lg mb-20">
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div>
           <label htmlFor="title" className="font-medium">

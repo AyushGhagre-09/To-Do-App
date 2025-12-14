@@ -15,7 +15,7 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="flex items-center justify-between px-6 h-16 bg-white border-b shadow-md">
+    <div className=" fixed top-0 z-2  w-full flex items-center justify-between px-6 h-16 bg-white border-b shadow-md">
       <div className="text-sm md:text-2xl font-semibold text-gray-800">To-Do App</div>
 
       <div className="flex items-center gap-3 text-gray-700">
